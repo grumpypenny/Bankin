@@ -26,11 +26,13 @@ public class MovementController : MonoBehaviour
 
 	private float raySpacing;
 	private CircleCollider2D circle;
+	private float radius;
 
     // Start is called before the first frame update
     void Start()
     {
 		circle = GetComponent<CircleCollider2D>();
+		radius = circle.radius;
 		selfMask = LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
 		FindRaySpacing();
     }
@@ -46,16 +48,16 @@ public class MovementController : MonoBehaviour
 
 	private void FireRays(ref Vector3 velocity)
 	{
-		Debug.DrawRay(transform.position, velocity.normalized * circle.radius, Color.red);
+		Debug.DrawRay(transform.position, velocity.normalized * radius, Color.red);
 
 		float rayLength = velocity.magnitude + skinWidth;
 
 		Ray2D travelDirection = new Ray2D(gameObject.transform.position, velocity.normalized);
-		Vector3 pointOnCircle = travelDirection.GetPoint(circle.radius - skinWidth);
+		Vector3 pointOnCircle = travelDirection.GetPoint(radius - skinWidth);
 
 		Debug.DrawLine(gameObject.transform.position, pointOnCircle, Color.blue);
-		Debug.DrawRay(pointOnCircle, Vector2.Perpendicular(velocity.normalized) * circle.radius, Color.red);
-		Debug.DrawRay(pointOnCircle, -Vector2.Perpendicular(velocity.normalized) * circle.radius, Color.magenta);
+		Debug.DrawRay(pointOnCircle, Vector2.Perpendicular(velocity.normalized) * radius, Color.red);
+		Debug.DrawRay(pointOnCircle, -Vector2.Perpendicular(velocity.normalized) * radius, Color.magenta);
 
 		Ray2D posPerpRay = new Ray2D(pointOnCircle, Vector2.Perpendicular(velocity.normalized));
 		for (int j = -1; j <= 1; j+= 2)

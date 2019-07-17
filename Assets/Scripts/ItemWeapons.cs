@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * This class is for the IN GAME object for the player to interact with
- */ 
-
-public class Item : MonoBehaviour
+public class ItemWeapons : MonoBehaviour
 {
 	[Header("The ITEM")]
-	public PickUp item;
+	public Weapon item;
 	public float pickUpRadius = 2f;
 
 	[Space]
@@ -23,12 +19,10 @@ public class Item : MonoBehaviour
 	{
 		playerPosition = PlayerInventory.instance.transform.position;
 
-		if (CanPickUp(playerPosition) && Input.GetKeyDown(key)) 
+		if (CanPickUp(playerPosition) && Input.GetKeyDown(key))
 		{
-			if (PlayerInventory.instance.AddPickUp(item))
-			{
-				gameObject.SetActive(false);
-			}
+			PlayerInventory.instance.AddWeapon(item);
+			gameObject.SetActive(false);
 		}
 	}
 

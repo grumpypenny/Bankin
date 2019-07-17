@@ -40,15 +40,49 @@ public class PlayerInventory : MonoBehaviour
 
 	[Header("Current State")]
 	public Weapon currentWeapon = null;
+	private int currentIndex = 0;
 
+	public delegate void NewCurrentWeapon();
+	public event NewCurrentWeapon weaponChange;
 
-	public void ChangeWeapon(Weapon newWeapon)
+	public void AddWeapon(Weapon newWeapon)
 	{
-		if (weapons.Count > 0)
-		{
-			weapons.Clear();
-		}
 		weapons.Add(newWeapon);
+		if (currentWeapon == null)
+		{
+			currentWeapon = newWeapon;
+			if (newWeapon != null)
+			{
+				weaponChange();
+			}
+		}
+	}
+
+	public void DropWeapon()
+	{
+		weapons.Remove(currentWeapon);
+	}
+
+	public void ChangeWeapon()
+	{
+		weaponChange?.Invoke();
+		//if (newWeapon != null)
+		//{
+		//	print("change");
+		//	newWeapon();
+		//}
+
+
+		if (currentWeapon == null && weapons.Count > 0)
+		{
+			// eqip first weapon
+			currentWeapon = weapons[0];
+			currentIndex = 0;
+			return;
+		}
+		// change current weapon to next index
+		currentIndex++;
+		currentWeapon = weapons[currentIndex];
 	}
 
 	public bool AddPickUp(PickUp newPickUp)

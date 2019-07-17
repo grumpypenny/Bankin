@@ -15,6 +15,10 @@ MonoBehaviour:
   name: Default Gun
   sprite: {fileID: 0}
   damage: 1
-  timeBetweenShots: 1
+  timeBetweenShots: 0.25
   reloadTime: 0.5
   clipSize: 10
+  bulletSpeed: 18.3
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 512
