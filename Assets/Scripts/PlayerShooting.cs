@@ -68,11 +68,16 @@ public class PlayerShooting : MonoBehaviour
 		{
 			Reload();
 		}
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			PlayerInventory.instance.ChangeWeapon();
+		}
 		Debug.DrawRay(muzzle.position, muzzle.right * 100, Color.grey);
     }
 
 	private void Reload()
 	{
+		timeOfNextShot = Time.time + currentWeapon.reloadTime;
 		remainingClip = currentWeapon.clipSize;
 	}
 

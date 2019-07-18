@@ -82,6 +82,10 @@ public class PlayerInventory : MonoBehaviour
 		}
 		// change current weapon to next index
 		currentIndex++;
+		if (currentIndex == weapons.Count)
+		{
+			currentIndex = 0;
+		}
 		currentWeapon = weapons[currentIndex];
 	}
 
