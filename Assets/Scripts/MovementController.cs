@@ -45,12 +45,16 @@ public class MovementController : MonoBehaviour
 		transform.Translate(velocity);
 	}
 
+	// Fire rays in the direction of movement
 	private void FireRays(ref Vector3 velocity)
 	{
 		Debug.DrawRay(transform.position, velocity.normalized * radius, Color.red);
 
+		// rays need to be the distance we move in the next frame
 		float rayLength = velocity.magnitude + skinWidth;
 
+		// Used to find point on circle in the direction we are moving
+		// makes it easier to find tangent of circle collider
 		Ray2D travelDirection = new Ray2D(gameObject.transform.position, velocity.normalized);
 		Vector3 pointOnCircle = travelDirection.GetPoint(radius - skinWidth);
 
@@ -58,7 +62,10 @@ public class MovementController : MonoBehaviour
 		Debug.DrawRay(pointOnCircle, Vector2.Perpendicular(velocity.normalized) * radius, Color.red);
 		Debug.DrawRay(pointOnCircle, -Vector2.Perpendicular(velocity.normalized) * radius, Color.magenta);
 
+		// Fire a ray perpendicular to the direction of movement
+		// We will have our collision detection originate on this ray
 		Ray2D posPerpRay = new Ray2D(pointOnCircle, Vector2.Perpendicular(velocity.normalized));
+		// need to go in both directions from tangent point, -1 and 1
 		for (int j = -1; j <= 1; j+= 2)
 		{
 			for (int i = j; i < numberOfRays; i++)

@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
 		Destroy(gameObject, lifeTime);
 	}
 
+	// called by event only, sets up bullet to match gun
     public void SetVariables(float _speed, float _damage, Vector2 _direction, LayerMask _hitMask)
 	{
 		if (!isSetUp)
@@ -48,9 +49,9 @@ public class Bullet : MonoBehaviour
 		Collided(hitMask);
 	}
 
+	// check if bullet has collided with anything
 	public void Collided(LayerMask hitMask)
 	{
-		//Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, rad, hitMask);
 		Collider2D other = Physics2D.OverlapCircle(transform.position, rad, hitMask);
 		if (other != null)
 		{

@@ -66,12 +66,6 @@ public class PlayerInventory : MonoBehaviour
 	public void ChangeWeapon()
 	{
 		weaponChange?.Invoke();
-		//if (newWeapon != null)
-		//{
-		//	print("change");
-		//	newWeapon();
-		//}
-
 
 		if (currentWeapon == null && weapons.Count > 0)
 		{
