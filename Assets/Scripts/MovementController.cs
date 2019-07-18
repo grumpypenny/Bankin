@@ -9,7 +9,6 @@ using UnityEngine;
  * Note: Call move from FIXED UPDATE so that everything works
  */ 
 
-
 [RequireComponent(typeof(CircleCollider2D))]
 public class MovementController : MonoBehaviour
 {

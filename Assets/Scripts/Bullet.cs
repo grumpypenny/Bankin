@@ -37,7 +37,6 @@ public class Bullet : MonoBehaviour
 			isSetUp = true;
 			PlayerShooting.instance.OnPlayerFire -= SetVariables;
 		}
-
 	}
 
 	private void Update()

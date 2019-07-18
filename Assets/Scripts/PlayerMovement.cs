@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 		graphics.transform.rotation = Quaternion.Euler(0, 0, angle);
-		//transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
 
 }
