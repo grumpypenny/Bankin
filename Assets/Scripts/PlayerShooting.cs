@@ -43,7 +43,7 @@ public class PlayerShooting : MonoBehaviour
 	private float remainingClip;
 
 	// event that goes off when a bullet is fired
-	public event Action<float, float, Vector2, LayerMask> OnPlayerFire;
+	public event Action<float, float, Vector2, LayerMask, float> OnPlayerFire;
 
     // Start is called before the first frame update
     void Start()
@@ -96,7 +96,7 @@ public class PlayerShooting : MonoBehaviour
 		// this sets up the bullet to have the correct properties.
 		if (OnPlayerFire != null)
 		{
-			OnPlayerFire.Invoke(currentWeapon.bulletSpeed, currentWeapon.damage, muzzle.right, hitMask);
+			OnPlayerFire.Invoke(currentWeapon.bulletSpeed, currentWeapon.damage, muzzle.right, hitMask, currentWeapon.lifeTime);
 		}
 
 	}

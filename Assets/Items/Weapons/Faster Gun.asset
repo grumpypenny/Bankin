@@ -19,6 +19,7 @@ MonoBehaviour:
   reloadTime: 0.25
   clipSize: 10
   bulletSpeed: 18.3
+  lifeTime: 5
   hitMask:
     serializedVersion: 2
     m_Bits: 512

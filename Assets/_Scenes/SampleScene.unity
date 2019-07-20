@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 80553444}
   - component: {fileID: 80553445}
   - component: {fileID: 80553446}
+  - component: {fileID: 80553447}
   m_Layer: 8
   m_Name: Test Player
   m_TagString: Untagged
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 528
   selfMask:
     serializedVersion: 2
     m_Bits: 256
@@ -317,6 +318,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   muzzle: {fileID: 1027494108}
+--- !u!114 &80553447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80553440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c98e1bc099f1d54c84ff64e3b630ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: a36bf4dbb08ed3140ba324faa4ff8623, type: 2}
 --- !u!1 &283717788
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465599950}
   - component: {fileID: 465599949}
+  - component: {fileID: 465599951}
   m_Layer: 9
   m_Name: Obstacle
   m_TagString: Untagged
@@ -653,6 +668,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465599951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465599948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c98e1bc099f1d54c84ff64e3b630ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: f97786736ea733e48a9fbb0285e39120, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

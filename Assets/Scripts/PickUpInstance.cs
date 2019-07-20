@@ -6,7 +6,7 @@ using UnityEngine;
  * This class is for the IN GAME object for the player to interact with
  */ 
 
-public class ItemPickUp : MonoBehaviour
+public class PickUpInstance : MonoBehaviour
 {
 	[Header("The ITEM")]
 	public PickUp item;

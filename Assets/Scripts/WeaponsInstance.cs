@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemWeapons : MonoBehaviour
+public class WeaponsInstance : MonoBehaviour
 {
 	[Header("The ITEM")]
 	public Weapon item;
