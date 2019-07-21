@@ -16,7 +16,6 @@ public class HealthData : ScriptableObject
 	{
 		currentHealth = maxHealth;
 		isDead = false;
-		Debug.Log(isDead);
 	}
 
 	public void TakeDamage(float amount)

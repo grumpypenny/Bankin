@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Look()
 	{
+		// dir = mouse pos - current pos in screen units
 		Vector2 direction = Input.mousePosition - Camera.main.WorldToScreenPoint(graphics.transform.position);
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // NOTE: Need to add event for each kind of shooting script
+
+// SPEED is offset by a factor of 1/10 to give more control
 [RequireComponent(typeof(CircleCollider2D))]
 public class Bullet : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class Bullet : MonoBehaviour
 		rad = GetComponent<CircleCollider2D>().radius;
 		// call set up when this object is fired
 		PlayerShooting.instance.OnPlayerFire += SetVariables;
+		AIShootingManager.instance.OnAIFire += SetVariables;
 	}
 
 	// called by event only, sets up bullet to match gun
@@ -36,6 +39,9 @@ public class Bullet : MonoBehaviour
 			// unsubscibe from player events
 			PlayerShooting.instance.OnPlayerFire -= SetVariables;
 
+			// unsubscribe from AI events
+			AIShootingManager.instance.OnAIFire -= SetVariables;
+
 			// destroy after lifetime seconds if it doesn't hit anything
 			Destroy(gameObject, _lifeTime);
 		}
@@ -45,7 +51,7 @@ public class Bullet : MonoBehaviour
 	{
 		if (isSetUp)
 		{
-			transform.position += (Vector3)direction * speed * Time.deltaTime;
+			transform.position += (Vector3)direction.normalized * speed * Time.deltaTime * 1/10;
 		}
 		Collided(hitMask);
 	}
@@ -56,8 +62,6 @@ public class Bullet : MonoBehaviour
 		Collider2D other = Physics2D.OverlapCircle(transform.position, rad, hitMask);
 		if (other != null)
 		{
-			print("hit " + other.name);
-
 			HealthData otherHealth = other.GetComponent<HealthInstance>().health;
 
 			if (otherHealth != null)

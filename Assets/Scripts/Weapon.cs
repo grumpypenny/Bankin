@@ -19,7 +19,7 @@ public class Weapon : ScriptableObject
 	public float reloadTime;
 	[Range(1, 1000)]
 	public int clipSize;
-	[Range(1, 50)]
+	[Range(1, 1000)]
 	public float bulletSpeed;
 	public float lifeTime;
 	public LayerMask hitMask;

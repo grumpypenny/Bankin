@@ -18,7 +18,7 @@ MonoBehaviour:
   timeBetweenShots: 0.1
   reloadTime: 0.25
   clipSize: 10
-  bulletSpeed: 18.3
+  bulletSpeed: 30
   lifeTime: 5
   hitMask:
     serializedVersion: 2
